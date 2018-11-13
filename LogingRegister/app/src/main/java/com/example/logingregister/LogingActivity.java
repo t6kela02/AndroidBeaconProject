@@ -26,7 +26,7 @@ public class LogingActivity extends AppCompatActivity {
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
-        final TextView tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
+        final Button tvRegisterLink = (Button) findViewById(R.id.tvRegisterLink);
         final Button bLogin = (Button) findViewById(R.id.bSignIn);
 
         tvRegisterLink.setOnClickListener(new View.OnClickListener() {
@@ -56,10 +56,12 @@ public class LogingActivity extends AppCompatActivity {
                             if (success) {
                                 Log.d("tag", "success");
                                 String name = jsonResponse.getString("name");
+                                int user_id = jsonResponse.getInt("user_id");
                                 int age = jsonResponse.getInt("age");
 
                                 Intent intent = new Intent(LogingActivity.this, UserAreaActivity.class);
                                 intent.putExtra("name", name);
+                                intent.putExtra("user_id", user_id);
                                 intent.putExtra("age", age);
                                 intent.putExtra("username", username);
                                 LogingActivity.this.startActivity(intent);
