@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataRequest extends StringRequest {
-    private static final String LOGIN_REQUEST_URL = "https://testiaccountservu.gear.host/DataOut.php";
+    private static final String LOGIN_REQUEST_URL = "https://testiaccountservu.gear.host/DataOutTest.php";
     private Map<String, String> params;
 
-    public DataRequest(String user_id, Response.Listener<String> listener) {
+    public DataRequest(int user_id, Response.Listener<String> listener) {
         super(Request.Method.POST, LOGIN_REQUEST_URL, listener, null);
         params = new HashMap<>();
-        params.put("user_id", user_id);
+        params.put("user_id", user_id + "");
     }
 
     @Override
